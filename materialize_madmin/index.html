@@ -260,6 +260,110 @@
       <p>Madmin painel &copy; 2018</p>
     </footer>
 
+    <!-- Botão de ação -->
+    <div class="fixed-action-btn">
+      <a href="" class="btn-floating btn-large red">
+        <i class="material-icons">add</i>
+      </a>
+      <ul>
+        <li>
+          <a href="#post-modal" class="modal-trigger btn-floating blue">
+            <i class="material-icons">mode_edit</i>
+          </a>
+        </li>
+
+        <li>
+          <a href="#category-modal" class="modal-trigger btn-floating blue">
+            <i class="material-icons">folder</i>
+          </a>
+        </li>
+
+        <li>
+          <a href="#user-modal" class="modal-trigger btn-floating blue">
+            <i class="material-icons">supervisor_account</i>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- ADD POST MODAL  -->
+    <div id="post-modal" class="modal">
+      <div class="modal-content">
+        <h4>Adicionar post</h4>
+        <form action="">
+          <div class="input-field">
+            <input type="text" id="title" /> <label for="title">Titulo</label>
+          </div>
+          <div class="input-field">
+            <select>
+              <option value="" disabled selected>Selecione uma opção...</option>
+              <option value="1">Desenvolvimento WEB</option>
+              <option value="2">Design Gráfico</option>
+              <option value="3">Outros</option>
+            </select>
+            <label>Categorias</label>
+          </div>
+          <div class="input-field">
+            <textarea
+              name="body"
+              id="body"
+              cols="30"
+              rows="10"
+              class="materialize-textarea"
+            ></textarea>
+            <label for="body">Corpo</label>
+          </div>
+        </form>
+        <div class="modal-footer">
+          <a href="#!" class="modal-action modal-close btn blue white-text"
+            >Salvar</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- ADD CATEGORIA MODAL  -->
+    <div id="category-modal" class="modal">
+      <div class="modal-content">
+        <h4>Adicionar categoria</h4>
+        <form action="">
+          <div class="input-field">
+            <input type="text" id="title" /> <label for="title">Titulo</label>
+          </div>
+          </div>
+        </form>
+        <div class="modal-footer">
+          <a href="#!" class="modal-action modal-close btn blue white-text"
+            >Salvar</a
+          >
+        </div>
+      </div>
+
+          <!-- ADICIONAR USUÁRIO MODAL  -->
+    <div id="USER-modal" class="modal">
+      <div class="modal-content">
+        <h4>Adicionar Usuário</h4>
+        <form action="">
+          <div class="input-field">
+            <input type="text" id="nome" /> <label for="nome">Nome</label>
+          </div>
+          <div class="input-field">
+            <input type="email" id="email" /> <label for="email">Email</label>
+          </div>
+          <div class="input-field">
+            <input type="password" id="senha" /> <label for="senha">Senha</label>
+          </div>
+          <div class="input-field">
+            <input type="password" id="senha2" /> <label for="senha2">Confirmar senha</label>
+          </div>
+          </div>
+        </form>
+        <div class="modal-footer">
+          <a href="#!" class="modal-action modal-close btn blue white-text"
+            >Salvar</a
+          >
+        </div>
+      </div>
     <!-- PRELOADER -->
     <div class="loader preloader-wrapper big active">
       <div class="spinner-layer spinner-blue-only">
@@ -275,6 +379,7 @@
     ></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script src="//cdn.ckeditor.com/4.11.1/standard/ckeditor.js"></script>
     <script>
       // Oculta Sections
       $(".section").hide();
@@ -289,6 +394,10 @@
 
           //Init Side nav
           $(".button-collapse").sideNav();
+          //inicia modal
+          $(".modal").modal();
+          //inicia select
+          $("select").material_select();
 
           // Counter
           $(".count").each(function() {
@@ -347,6 +456,7 @@
         Materialize.toast("Tarefa removida!", 3000);
         e.preventDefault();
       });
+      CKEDITOR.replace("body");
     </script>
     <script src="js/chart.js"></script>
   </body>
